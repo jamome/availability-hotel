@@ -1,0 +1,68 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/booking
+    username: postgres
+    password: sogtulapdt
+  jpa:
+    show-sql: true
+    properties:  
+      hibernate:
+        order_inserts: true
+        jdbc:
+          batch_size: 30
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        generate_statistics: true
+    hibernate:
+      ddl-auto: create
+logging:
+  file:
+    path: ./logs/api-booking.log   
+  level:
+    root: DEBUG 
+## ---    
+##spring:
+##  profiles: test
+##  datasource:
+##    url: jdbc:postgresql://localhost:5432/booking
+##    username: postgres
+##    password: sogtulapdt
+##  jpa:
+##    show-sql: false
+##    properties:  
+##      hibernate:
+##        order_inserts: true
+##        jdbc:
+##          batch_size: 30
+##        dialect: org.hibernate.dialect.PostgreSQLDialect
+##        generate_statistics: false
+##    hibernate:
+##      ddl-auto: update
+##logging:
+##  file:
+##    path: ./logs/api-booking.log   
+##  level:
+##    root: INFO
+##---
+##spring:
+##  profiles: production
+##  datasource:
+##    url: jdbc:postgresql://localhost:5432/booking
+##    username: postgres
+##    password: sogtulapdt
+##  jpa:
+##    show-sql: false
+##    properties:  
+##      hibernate:
+##        order_inserts: true
+##        jdbc:
+##          batch_size: 30
+##        dialect: org.hibernate.dialect.PostgreSQLDialect
+##        generate_statistics: false
+##    hibernate:
+##      ddl-auto: update
+##logging:
+##  file:
+##    path: ./logs/api-booking.log   
+##  level:
+##    root: WARN
+  
