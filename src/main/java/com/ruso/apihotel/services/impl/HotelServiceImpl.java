@@ -88,6 +88,8 @@ public class HotelServiceImpl implements HotelService {
       hotelResponse.setCategory(h.getCategory());
       hotelResponse.setId(h.getId());
       hotelResponse.setName(h.getName());
+      h.getAvailability().removeIf(av -> (from.compareTo(av.getAvailabilityIdentity().getDate()) > 0
+          || to.compareTo(av.getAvailabilityIdentity().getDate()) < 0));
       h.getAvailability().forEach(a -> {
         HotelAvailabilityDTO hotelAvailability = new HotelAvailabilityDTO();
         hotelAvailability.setDate(a.getAvailabilityIdentity().getDate());
