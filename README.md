@@ -2,8 +2,8 @@
 API disponibilidad de Hotel
 
 **NOTA**
-Se ha modificado el esquema de bases de datos propuesto en la práctica para añadir una mejora al enunciado. El script de creación de la Base de datos se encuentra en la carpeta SQL_BD del repositorio
-
+-Se ha modificado el esquema de bases de datos propuesto en la práctica para añadir una mejora al enunciado. El script de creación de la Base de datos se encuentra en la carpeta SQL_BD del repositorio
+-Las fechas se tomarán con el formato AAAA-MM-DD
 
 
 Requisitos:
