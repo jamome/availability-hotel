@@ -77,8 +77,7 @@ public class HotelServiceImpl implements HotelService {
 
     ApiBookingValidator.validateDateRange(from, to);
 
-    List<HotelDAO> listHotelsWithAvailability =
-        hotelRepository.getHotelWithAvailabilityByDate(from, to);
+    List<HotelDAO> listHotelsWithAvailability = hotelRepository.findAll();
 
     List<HotelDTOExtended> listHotelToResponse = new ArrayList<HotelDTOExtended>();
 
@@ -89,8 +88,7 @@ public class HotelServiceImpl implements HotelService {
       hotelResponse.setId(h.getId());
       hotelResponse.setName(h.getName());
       h.getAvailability().removeIf(av -> (from.compareTo(av.getAvailabilityIdentity().getDate()) > 0
-          || to.compareTo(av.getAvailabilityIdentity().getDate()) < 0
-          || av.getRooms() < 1 ));
+          || to.compareTo(av.getAvailabilityIdentity().getDate()) < 0 || av.getRooms() < 1));
       h.getAvailability().forEach(a -> {
         HotelAvailabilityDTO hotelAvailability = new HotelAvailabilityDTO();
         hotelAvailability.setDate(a.getAvailabilityIdentity().getDate());

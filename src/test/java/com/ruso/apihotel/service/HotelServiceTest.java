@@ -139,8 +139,7 @@ public class HotelServiceTest extends SingleContextTest {
 
   @Test
   public void getHotelsWithAvailabilityTest() {
-    Mockito.when(hotelRepository.getHotelWithAvailabilityByDate(Mockito.any(LocalDate.class),
-        Mockito.any(LocalDate.class))).thenReturn(listHotelsDAO.subList(0, 1));
+    Mockito.when(hotelRepository.findAll()).thenReturn(listHotelsDAO.subList(0, 1));
     List<HotelDTOExtended> response = hotelService
         .getHotelsWithAvailability(LocalDate.parse("2020-01-01"), LocalDate.parse("2020-01-01"));
     Assert.assertArrayEquals(listHotelDTOExtended.toArray(), response.toArray());
